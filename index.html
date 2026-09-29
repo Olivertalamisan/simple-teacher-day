@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salute to Our Educators 🌿</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            /* Emerald + Sage + Warm Vanilla Theme */
+            background: linear-gradient(135deg, #0f382c, #1f5042, #336153, #e3d0aa);
+            background-size: 400% 400%;
+            animation: bgShift 15s ease infinite;
+            color: #1a2e26;
+            min-height: 100vh;
+        }
+
+        @keyframes bgShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .flower {
+            position: fixed;
+            font-size: 30px;
+            opacity: 0.5;
+            animation: floatLeaf 7s ease-in-out infinite;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .f1 { top: 12%; left: 6%; }
+        .f2 { top: 22%; right: 7%; animation-delay: 2s; }
+        .f3 { bottom: 15%; left: 8%; animation-delay: 4s; }
+        .f4 { bottom: 18%; right: 9%; animation-delay: 1s; }
+
+        @keyframes floatLeaf {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-25px) rotate(-12deg); }
+        }
+
+        .wrapper {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 20px;
+        }
+
+        .card {
+            width: 100%;
+            max-width: 850px;
+            background: rgba(253, 251, 247, 0.95);
+            border-radius: 24px;
+            padding: 50px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
+            border: 1px solid rgba(212, 175, 55, 0.4);
+            text-align: center;
+        }
+
+        .school-icon {
+            font-size: 58px;
+            margin-bottom: 15px;
+        }
+
+        h1 {
+            font-size: 44px;
+            color: #0f382c;
+            margin-bottom: 12px;
+            font-family: 'Georgia', serif;
+        }
+
+        .subtitle {
+            font-size: 19px;
+            color: #486358;
+            margin-bottom: 35px;
+            font-style: italic;
+        }
+
+        /* MUSIC PLAYER */
+        .music-box {
+            background: #e2ebd8;
+            padding: 16px 24px;
+            border-radius: 50px;
+            margin: 0 auto 30px;
+            max-width: 420px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 4px 12px rgba(15, 56, 44, 0.08);
+            border: 1px solid #c2d4b4;
+        }
+
+        .music-text { text-align: left; flex: 1; margin-left: 12px; }
+        .music-title { font-weight: bold; color: #0f382c; font-size: 15px; }
+        .music-status { font-size: 12px; color: #527365; }
+
+        #musicButton {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            border: none;
+            background: #0f382c;
+            color: #e3d0aa;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        #musicButton:hover {
+            background: #255948;
+            transform: scale(1.05);
+        }
+
+        /* MESSAGE */
+        .message-box {
+            background: #f4f0e6;
+            padding: 30px;
+            border-radius: 16px;
+            margin: 25px 0;
+            border-top: 4px solid #0f382c;
+            border-bottom: 4px solid #d4af37;
+        }
+
+        .message-box p {
+            font-size: 17px;
+            line-height: 1.8;
+            margin-bottom: 14px;
+            color: #2b3a33;
+        }
+
+        .quote {
+            margin: 30px 0;
+            padding: 20px;
+            background: #ede6d5;
+            border-radius: 12px;
+            color: #0f382c;
+            font-size: 19px;
+            font-style: italic;
+        }
+
+        /* CARDS */
+        .appreciation {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            margin: 35px 0;
+        }
+
+        .small-card {
+            padding: 22px 14px;
+            border-radius: 16px;
+            font-size: 14px;
+            line-height: 1.4;
+            transition: 0.3s;
+        }
+
+        .small-card:hover { transform: translateY(-4px); }
+        .small-card span { display: block; font-size: 32px; margin-bottom: 8px; }
+
+        .c1 { background: #e3ebd8; color: #1e3b2b; }
+        .c2 { background: #f0e6d2; color: #423213; }
+        .c3 { background: #dce5e1; color: #1c332b; }
+
+        .thanks { font-size: 22px; color: #0f382c; font-weight: bold; margin-top: 20px; }
+        .heart { color: #d4af37; font-size: 26px; margin-top: 5px; }
+
+        .surprise-button {
+            margin-top: 25px;
+            border: none;
+            padding: 14px 28px;
+            border-radius: 25px;
+            background: #0f382c;
+            color: #f4f0e6;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .surprise-button:hover { background: #1f5042; }
+
+        #surprise {
+            display: none;
+            margin-top: 20px;
+            padding: 20px;
+            background: #e2ebd8;
+            border-radius: 12px;
+            color: #0f382c;
+            font-size: 17px;
+        }
+
+        footer { margin-top: 30px; color: #738a80; font-size: 13px; }
+
+        @media (max-width: 650px) {
+            .appreciation { grid-template-columns: 1fr; }
+            h1 { font-size: 32px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="flower f1">🌿</div>
+    <div class="flower f2">🍃</div>
+    <div class="flower f3">🌱</div>
+    <div class="flower f4">🌾</div>
+
+    <div class="wrapper">
+        <div class="card">
+            <div class="school-icon">📜🕯️</div>
+            <h1>happy teacher days</h1>
+            <p class="subtitle">future generations</p>
+
+            <div class="music-box">
+                <div style="font-size: 24px;">🎻</div>
+                <div class="music-text">
+                    <div class="music-title">Dedicated Melody</div>
+                    <div class="music-status" id="musicStatus">Press play to listen</div>
+                </div>
+                <button id="musicButton" onclick="toggleMusic()">▶</button>
+            </div>
+
+            <audio id="backgroundMusic" loop>
+                <source src="Akon - Lonely (Official Music Video).mp3" type="audio/mpeg">
+            </audio>
+
+            <div class="message-box">
+                <p><strong>Dear teacher,</strong></p>
+                <p>Thank you for your patience, kindness, and dedication in teaching us. 
+                Thank you for your understanding and for everything you do to help us learn and grow. 
+                We may not always say it, but we truly appreciate all your hard work and effort. 
+                May you continue to inspire and guide your students.Happy Teacher’s Day to all 
+                the amazing teachers! God bless you always! ❤️🌹</p>
+                
+                
+            </div>
+
+            <div class="quote">
+                "To teach is to ignite a flame that illuminates every path we walk hereafter."
+            </div>
+
+            <div class="appreciation">
+                <div class="small-card c1">
+                    <span>📚</span>
+                    <strong>Wisdom Shared</strong><br>For making complex ideas clear
+                </div>
+                <div class="small-card c2">
+                    <span>🌱</span>
+                    <strong>Patience Shown</strong><br>For helping us grow step-by-step
+                </div>
+                <div class="small-card c3">
+                    <span>⭐</span>
+                    <strong>Potential Seen</strong><br>For believing in our strengths
+                </div>
+            </div>
+
+            <p class="thanks">Thank you for shape-shifting our perspective on learning!</p>
+            <div class="heart">✦ ✨ ✦</div>
+
+            <button class="surprise-button" onclick="showSurprise()">Read Personal Note ✉️</button>
+
+            <div id="surprise">
+                🌿 A great mentor doesn't just deliver answers—they show you where to look, encouraging you to discover your own unique truth.<br><br>
+                <strong>Happy Teacher's Day! Thank you for walking alongside us on this journey!</strong>
+            </div>
+
+            <footer>Crafted with deep gratitude by your dedicated students</footer>
+        </div>
+    </div>
+
+    <script>
+        const music = document.getElementById("backgroundMusic");
+        const musicButton = document.getElementById("musicButton");
+        const musicStatus = document.getElementById("musicStatus");
+
+        function toggleMusic() {
+            if (music.paused) {
+                music.play();
+                musicButton.innerHTML = "⏸";
+                musicStatus.innerHTML = "Playing tribute soundtrack";
+            } else {
+                music.pause();
+                musicButton.innerHTML = "▶";
+                musicStatus.innerHTML = "Music paused";
+            }
+        }
+
+        function showSurprise() {
+            const message = document.getElementById("surprise");
+            message.style.display = (message.style.display === "block") ? "none" : "block";
+        }
+    </script>
+</body>
+</html>
